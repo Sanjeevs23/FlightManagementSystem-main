@@ -3,8 +3,12 @@ package com.cg.flightmgmt.dto;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,8 +16,13 @@ import javax.persistence.Table;
 public class Schedule {
 	@Id
 	private BigInteger scheduleId;
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "airportCode",insertable= false, updatable =false )
 	private Airport sourceAirport;
+	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "airportCode",insertable= false, updatable =false )
 	private Airport destinationAirport;
+	
 	private LocalDateTime arrivalTime;
 	private LocalDateTime departureTime;
 	
