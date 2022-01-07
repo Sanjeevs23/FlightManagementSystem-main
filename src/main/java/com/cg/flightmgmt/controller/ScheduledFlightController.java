@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.flightmgmt.dao.ScheduledFlightDao;
@@ -27,8 +28,8 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	@Autowired
 	private ScheduledFlightDao dao;
 	
-	@PostMapping(path="/addScheduleFlight/{Scheduleid}/{FlightId}")
-	public ScheduledFlight createBooking(@Valid @RequestBody ScheduledFlight flight, @PathVariable BigInteger Scheduleid, @PathVariable BigInteger FlightId) {
+	@PostMapping(path="/addScheduleFlight/{Scheduleid}")
+	public ScheduledFlight createBooking(@Valid @RequestBody ScheduledFlight flight, @PathVariable BigInteger Scheduleid, @RequestParam BigInteger FlightId) {
 		return dao.addScheduleFlight(flight, Scheduleid, FlightId);
 	}
 	
@@ -38,8 +39,8 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 		
 	}
 	
-	@GetMapping(path="/viewScheduledFlights/{airportSourceCode}/{airportDestinationCode}/{depatureDateTime}")
-	public List<ScheduledFlight> viewScheduledFlights(@PathVariable int airportsourceCode, @PathVariable int airportDestCode, @PathVariable LocalDateTime depaturedate){
+	@GetMapping(path="/viewScheduledflights")
+	public List<ScheduledFlight> viewScheduledFlights(@RequestParam int airportsourceCode, @RequestParam int airportDestCode, @RequestParam LocalDateTime depaturedate){
 		return dao.viewScheduledFlights(airportsourceCode, airportDestCode, depaturedate);
 		
 	}

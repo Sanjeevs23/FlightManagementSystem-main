@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.flightmgmt.dao.BookingDao;
@@ -31,8 +32,8 @@ public class BookingController {
 
 	
 	//localhost:5010/booking/createBooking
-	@PostMapping(path="/createBooking/{Userid}/{ScheduleFlightId}")
-	public void createBooking(@Valid @RequestBody Booking booking, @PathVariable BigInteger Userid, @PathVariable BigInteger ScheduleFlightId) {
+	@PostMapping(path="/createBooking")
+	public void createBooking(@Valid @RequestBody Booking booking, @RequestParam BigInteger Userid, @RequestParam BigInteger ScheduleFlightId) {
 		logger.info("Booking created sucessfully");
 		 dao.addBooking(booking,Userid,ScheduleFlightId);
 	}

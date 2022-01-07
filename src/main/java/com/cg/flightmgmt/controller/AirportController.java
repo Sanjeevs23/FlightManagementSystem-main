@@ -30,7 +30,7 @@ public class AirportController {
 	}
 	
 	//localhost:5010/airport/airports/:id
-	@GetMapping(path="/airports/{id}")
+	@GetMapping(path="/airports/{airportCode}")
 	public Airport viewAirport(@PathVariable int airportCode) throws AirportNotFoundException{
 		return dao.viewAirport(airportCode);
 	}
