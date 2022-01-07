@@ -30,12 +30,15 @@ public class ScheduleController {
 		
 		//localhost:5010/schedule/createSchedule
 		@PostMapping(path="/createSchedule")
-		public void createBooking(@Valid @RequestBody Schedule schedule, @RequestParam int sourceAirportCode, @RequestParam int destinationAirportCode) {
+		public void createSchedule(@Valid @RequestBody Schedule schedule, @RequestParam("sourceAirportCode") int sourceAirportCode, @RequestParam("destinationAirportCode") int destinationAirportCode) {
 			Airport source = arpt.getById(sourceAirportCode);
+			System.out.println(source.toString());
 			Airport destination =arpt.getById(destinationAirportCode);
 			schedule.setSourceAirport(source);
+			System.out.println(destination.toString());
 			schedule.setDestinationAirport(destination);
-			logger.info("Booking created sucessfully");
+			System.out.println(schedule.toString());
+			//logger.info("Booking created sucessfully");
 			 dao.createSchedule(schedule);
 		}
 		

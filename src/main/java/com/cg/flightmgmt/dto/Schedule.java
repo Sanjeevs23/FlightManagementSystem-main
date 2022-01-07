@@ -17,10 +17,10 @@ public class Schedule {
 	@Id
 	private BigInteger scheduleId;
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "airportCode",insertable= false, updatable =false )
+	@JoinColumn(name = "soource_airportCode" )
 	private Airport sourceAirport;
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "airportCode",insertable= false, updatable =false )
+	@JoinColumn(name = "destination_airportCode")
 	private Airport destinationAirport;
 	
 	private LocalDateTime arrivalTime;
@@ -69,4 +69,11 @@ public class Schedule {
 	public void setDepartureTime(LocalDateTime departureTime) {
 		this.departureTime = departureTime;
 	}
+	@Override
+	public String toString() {
+		return "Schedule [scheduleId=" + scheduleId + ", sourceAirport=" + sourceAirport + ", destinationAirport="
+				+ destinationAirport + ", arrivalTime=" + arrivalTime + ", departureTime=" + departureTime + "]";
+	}
+	
+	
 }

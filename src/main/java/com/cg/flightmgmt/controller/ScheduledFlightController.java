@@ -28,8 +28,8 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	@Autowired
 	private ScheduledFlightDao dao;
 	
-	@PostMapping(path="/addScheduleFlight/{Scheduleid}")
-	public ScheduledFlight createBooking(@Valid @RequestBody ScheduledFlight flight, @PathVariable BigInteger Scheduleid, @RequestParam BigInteger FlightId) {
+	@PostMapping(path="/addScheduleFlight")
+	public ScheduledFlight createBooking(@Valid @RequestBody ScheduledFlight flight, @RequestParam("Scheduleid") BigInteger Scheduleid,@RequestParam("FlightId")BigInteger FlightId) {
 		return dao.addScheduleFlight(flight, Scheduleid, FlightId);
 	}
 	
