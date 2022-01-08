@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -28,6 +29,7 @@ public class Booking {
 	private BigInteger bookingId;
 	@ManyToOne
 	@JoinColumn(name ="userId")
+	@JsonIgnore
 	private User userId;
 	private LocalDate bookingDate;
 	@OneToMany(mappedBy="booked",cascade =CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)

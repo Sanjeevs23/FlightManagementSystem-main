@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -22,6 +23,7 @@ public class Passenger {
 	private Double luggage;
 	@ManyToOne
 	@JoinColumn(name="bookingId")
+	@JsonIgnore
 	private Booking booked;
 	
 	public BigInteger getPnrNumber() {

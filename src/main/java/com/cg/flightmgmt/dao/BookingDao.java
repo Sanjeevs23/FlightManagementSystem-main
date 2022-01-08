@@ -72,7 +72,8 @@ public class BookingDao implements BookingService {
 
 	@Override
 	public List<Booking> viewBooking() {
-		return repo.findAll();
+	      List <Booking> l1=repo.findAll();
+	      return l1;
 	}
 
 	@Override

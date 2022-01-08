@@ -52,7 +52,8 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	}
 	
 	@GetMapping(path="/viewScheduledFlight/{flightNumber}")
-	public List<ScheduledFlight> viewScheduledFlight(@PathVariable BigInteger flightno){
+	public List<ScheduledFlight> viewScheduledFlight(@PathVariable int flightNumber){
+		BigInteger flightno= BigInteger.valueOf(flightNumber);
 		return dao.viewScheduledFlight(flightno);
 	}
 	

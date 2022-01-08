@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.flightmgmt.dao.BookingDao;
 import com.cg.flightmgmt.dto.Booking;
-import com.cg.flightmgmt.dto.Passenger;
 import com.cg.flightmgmt.exception.BookingNotFoundException;
 
 @RestController
@@ -42,9 +41,10 @@ public class BookingController {
 	}
 	
 	//localhost:5010/user/deleteUser/:id
-	@DeleteMapping(path="deleteBooking/{id}")
-	 public void deletebooking(@PathVariable BigInteger bookingid) {
-    	dao.deleteBooking(bookingid);
+	@DeleteMapping(path="deleteBooking/{bookingid}")
+	 public void deletebooking(@PathVariable int bookingid) {
+		BigInteger Bookingid = BigInteger.valueOf(bookingid);
+    	dao.deleteBooking(Bookingid);
     }
     
     @PutMapping("/updateBooking")
@@ -52,9 +52,10 @@ public class BookingController {
     	return dao.modifyBooking(booking);
     }
     
-    @GetMapping("/viewbooking/{id}")
-    public Booking getBooking(@PathVariable BigInteger bookingid) throws BookingNotFoundException {
-    	return dao.viewBooking(bookingid);
+    @GetMapping("/viewbooking/{bookingid}")
+    public Booking getBooking(@PathVariable int bookingid) throws BookingNotFoundException {
+    	BigInteger Bookingid = BigInteger.valueOf(bookingid);
+    	return dao.viewBooking(Bookingid);
     }
     
     @GetMapping("/viewbooking")

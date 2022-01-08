@@ -42,20 +42,22 @@ public class UserController {
 	}
 	
 	//localhost:5010/user/users/:id
-	@GetMapping(path="/users/{id}")
-	public User viewUserById(@PathVariable BigInteger userId) throws UserNotFoundException{
+	@GetMapping(path="/users/{UserId}")
+	public User viewUserById(@PathVariable int UserId) throws UserNotFoundException{
+		BigInteger userId = BigInteger.valueOf(UserId);
 		return dao.viewUser(userId);
 	}
 	
 	//localhost:5010/user/updateUser/:id
-	@PutMapping(path="/updateUser/{id}")
-	public User updateUser(@RequestBody User user, @PathVariable int id) {
+	@PutMapping(path="/updateUser")
+	public User updateUser(@RequestBody User user) {
 		return dao.updateUser(user);
 	}
 	
 	//localhost:5010/user/deleteUser/:id
-	@DeleteMapping(path="deleteUser/{id}")
-	public void deleteUser(@PathVariable BigInteger userId){
+	@DeleteMapping(path="deleteUser/{Userid}")
+	public void deleteUser(@PathVariable int UserId){
+		BigInteger userId = BigInteger.valueOf(UserId);
 		dao.deleteUser(userId);
 	}
 }
