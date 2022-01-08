@@ -15,10 +15,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 @Entity
 @Table(name="Booking_table")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Booking {
 	@Id
 	// @GeneratedValue(strategy=GenerationType.AUTO)

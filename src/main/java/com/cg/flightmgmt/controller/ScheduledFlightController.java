@@ -29,8 +29,14 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	private ScheduledFlightDao dao;
 	
 	@PostMapping(path="/addScheduleFlight")
-	public ScheduledFlight createBooking(@Valid @RequestBody ScheduledFlight flight, @RequestParam("Scheduleid") BigInteger Scheduleid,@RequestParam("FlightId")BigInteger FlightId) {
-		return dao.addScheduleFlight(flight, Scheduleid, FlightId);
+	public ScheduledFlight createBooking(@Valid @RequestBody ScheduledFlight flight, @RequestParam("Scheduleid") int Scheduleid,@RequestParam("FlightId") int FlightId) {
+		BigInteger scheduleid = BigInteger.valueOf(Scheduleid);
+		BigInteger flightid = BigInteger.valueOf(FlightId);
+		System.out.println(scheduleid);
+		System.out.println(flightid);
+		System.out.println(flight);
+	return dao.addScheduleFlight(flight, scheduleid, flightid);
+		//return null;
 	}
 	
 	@GetMapping(path="/viewScheduledFlights")
@@ -40,7 +46,7 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	}
 	
 	@GetMapping(path="/viewScheduledflights")
-	public List<ScheduledFlight> viewScheduledFlights(@RequestParam int airportsourceCode, @RequestParam int airportDestCode, @RequestParam LocalDateTime depaturedate){
+	public List<ScheduledFlight> viewScheduledFlights(@RequestParam("airportsourceCode") int airportsourceCode, @RequestParam("airportDestCode") int airportDestCode, @RequestParam("depaturedate") LocalDateTime depaturedate){
 		return dao.viewScheduledFlights(airportsourceCode, airportDestCode, depaturedate);
 		
 	}

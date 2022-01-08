@@ -33,8 +33,13 @@ public class BookingDao implements BookingService {
 		User addBooker = repo1.getById(UserId);
 		ScheduledFlight currentflight = repo2.getById(flightId);
 		booking.setFlight(currentflight);
+		int nPassengers= booking.getPassengerList().size();
+		booking.setNoOfPassangers(nPassengers);
 		if (this.validateBooking(booking) == true) {
 			int balence = booking.getFlight().getAvailableSeats() - booking.getNoOfPassangers();
+			for(int i=0;i<booking.getPassengerList().size();i++) {
+				booking.getPassengerList().get(i).setBooked(booking);
+			}
 			addBooker.addBooking(booking);
 			booking.getFlight().setAvailableSeats(balence);
 			repo2.save(booking.getFlight());

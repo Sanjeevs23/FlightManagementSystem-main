@@ -11,7 +11,7 @@ public class FlightManagementSystemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FlightManagementSystemApplication.class, args);
-		System.out.println("Application running on localhst:5100");
+		System.out.println("Application running on localhst:5010");
 	}
 
 }

@@ -11,8 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name="Flight_table")
+@Table(name="User_table")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 	@Id
 	private BigInteger userId;
@@ -23,6 +26,9 @@ public class User {
 	private String mobileNumber;
 	@OneToMany(mappedBy="userId",cascade =CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
 	List<Booking> bookingList = new ArrayList<>();
+	public User() {
+		
+	}
 	
 	public User(BigInteger userId, String userType, String userName, String password, String email,
 			String mobileNumber) {

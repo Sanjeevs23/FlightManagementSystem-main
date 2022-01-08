@@ -10,8 +10,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Proxy;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="Scheduled_Flight_table")
+@Proxy(lazy=false)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class ScheduledFlight {
 	@Id
 	private BigInteger scheduleFlightId;
@@ -61,4 +67,10 @@ public class ScheduledFlight {
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
+	@Override
+	public String toString() {
+		return "ScheduledFlight [scheduleFlightId=" + scheduleFlightId + ", flight=" + flight + ", availableSeats="
+				+ availableSeats + ", schedule=" + schedule + "]";
+	}
+	
 }

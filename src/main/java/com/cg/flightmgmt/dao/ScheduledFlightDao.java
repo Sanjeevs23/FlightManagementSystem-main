@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.Proxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import com.cg.flightmgmt.repository.ScheduledFlightRepository;
 import com.cg.flightmgmt.service.ScheduledFlightService;
 
 @Service
+@Proxy(lazy=false)
 public class ScheduledFlightDao implements ScheduledFlightService{
 	@Autowired
 	private ScheduledFlightRepository repo;

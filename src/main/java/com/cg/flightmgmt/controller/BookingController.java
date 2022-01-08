@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.flightmgmt.dao.BookingDao;
 import com.cg.flightmgmt.dto.Booking;
+import com.cg.flightmgmt.dto.Passenger;
 import com.cg.flightmgmt.exception.BookingNotFoundException;
 
 @RestController
@@ -33,9 +34,11 @@ public class BookingController {
 	
 	//localhost:5010/booking/createBooking
 	@PostMapping(path="/createBooking")
-	public void createBooking(@Valid @RequestBody Booking booking, @RequestParam BigInteger Userid, @RequestParam BigInteger ScheduleFlightId) {
+	public void createBooking(@Valid @RequestBody Booking booking, @RequestParam("Userid") int Userid, @RequestParam("ScheduleFlightid") int ScheduleFlightId) {
+		BigInteger userid = BigInteger.valueOf(Userid);
+		BigInteger scheduledFlightId = BigInteger.valueOf(ScheduleFlightId);
 		logger.info("Booking created sucessfully");
-		 dao.addBooking(booking,Userid,ScheduleFlightId);
+		 dao.addBooking(booking,userid,scheduledFlightId);
 	}
 	
 	//localhost:5010/user/deleteUser/:id
