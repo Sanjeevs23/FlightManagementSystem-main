@@ -50,6 +50,7 @@ public class BookingDao implements BookingService {
 	@Override
 	public void deleteBooking(BigInteger bookingid) {
 		Booking del = repo.getById(bookingid);
+		del.setFlight(null);
 		User deleteBooker = del.getUserId();
 		deleteBooker.deletebooking(del);
 		repo1.save(deleteBooker);

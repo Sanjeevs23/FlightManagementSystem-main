@@ -2,6 +2,7 @@ package com.cg.flightmgmt.controller;
 
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -46,8 +47,13 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	}
 	
 	@GetMapping(path="/viewScheduledflights")
-	public List<ScheduledFlight> viewScheduledFlights(@RequestParam("airportsourceCode") int airportsourceCode, @RequestParam("airportDestCode") int airportDestCode, @RequestParam("depaturedate") LocalDateTime depaturedate){
-		return dao.viewScheduledFlights(airportsourceCode, airportDestCode, depaturedate);
+	public List<ScheduledFlight> viewScheduledFlights(@RequestParam("airportsourceCode") int airportsourceCode, @RequestParam("airportDestCode") int airportDestCode, @RequestParam("depaturedate") String depaturedate){
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+		LocalDateTime DepartureDate = LocalDateTime.parse(depaturedate, formatter);
+
+		//System.out.println(depaturedate);
+		return dao.viewScheduledFlights(airportsourceCode, airportDestCode, DepartureDate);
+		//return null;
 		
 	}
 	
