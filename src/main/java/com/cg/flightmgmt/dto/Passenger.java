@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,8 +20,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Passenger {
 	@Id
 	private BigInteger pnrNumber;
+	@NotNull(message="Passenger name should not be null")
+	@NotEmpty(message="Passenger name should not be empty")
 	private String passengerName;
+	@NotNull(message="Passenger age should not be null")
 	private int passengerAge;
+	@NotNull(message="Passenger UIN should not be null")
+	@Digits(integer=12, fraction=0)
 	private BigInteger passengerUIN;
 	private Double luggage;
 	@ManyToOne

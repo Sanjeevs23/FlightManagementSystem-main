@@ -3,6 +3,9 @@ package com.cg.flightmgmt.dto;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -11,8 +14,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Airport {
 	@Id
+	@NotNull(message = "Airport Code should not be Empty")
 	private int airportCode;
+	@Pattern(regexp="[a-zA-z ]*",message="Airport Name should have only alphabets")
+	@NotNull(message="Airport Name should not be Empty")
+	@Size(min=3,message="Airport Name should have minimum 3 alphabets")
 	private String airportName;
+	@NotNull(message="Airport Location should not be Empty")
+	@Size(min=3,message="Airport Location should have minimum 3 alphabets")
 	private String airportLocation;
 	
 	public Airport() {

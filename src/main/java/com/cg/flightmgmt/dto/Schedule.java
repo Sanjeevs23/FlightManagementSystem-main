@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Schedule {
 	@Id
+	@NotNull(message="Schedule Id should not be null")
 	private BigInteger scheduleId;
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "soource_airportCode" )
@@ -25,8 +27,9 @@ public class Schedule {
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "destination_airportCode")
 	private Airport destinationAirport;
-	
+	@NotNull(message="Arrival Time should not be null")
 	private LocalDateTime arrivalTime;
+	@NotNull(message="Departure Time should not be null")
 	private LocalDateTime departureTime;
 	
 	public Schedule() {

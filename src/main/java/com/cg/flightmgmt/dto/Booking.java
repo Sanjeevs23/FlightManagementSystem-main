@@ -14,11 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
 
 @Entity
 @Table(name="Booking_table")
@@ -31,13 +30,17 @@ public class Booking {
 	@JoinColumn(name ="userId")
 	@JsonIgnore
 	private User userId;
+	@NotNull(message="Booking Date must not be null")
 	private LocalDate bookingDate;
+	@NotNull(message="Should have atleast one passenger")
 	@OneToMany(mappedBy="booked",cascade =CascadeType.ALL, fetch=FetchType.EAGER, orphanRemoval=true)
 	private List <Passenger>passengerList = new ArrayList<>();
+	@NotNull(message="Ticket cost must not be null")
 	private double ticketCost;
 	@OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "scheduleFlightId")
 	private ScheduledFlight flight;
+	@NotNull(message="Should have atleast one passenger")
 	private int noOfPassangers;
 	public BigInteger getBookingId() {
 		return bookingId;

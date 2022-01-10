@@ -5,6 +5,8 @@ import java.math.BigInteger;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -13,9 +15,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 public class Flight {
 	@Id
+	@NotNull(message="Flight Number should not be null")
 	private BigInteger flightNumber;
+	@NotEmpty(message="Carrier Name should not be empty")
 	private String carrierName;
+	@NotEmpty(message="Flight Model should not be empty")
 	private String flightModel;
+	@NotNull(message="Seat Capacity should not be null")
 	private int seatCapacity;
 	public Flight() {
 		super();
