@@ -19,22 +19,22 @@ import com.cg.flightmgmt.exception.AirportNotFoundException;
 @RequestMapping("/airport")
 public class AirportController {
 	Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
-	
+
 	@Autowired
 	private AirportDao dao;
-	
+
 	//localhost:5010/airport/airports
 	@RequestMapping(path="/airports")
 	public List<Airport> viewAllAirports(){
 		return dao.viewAirport();
 	}
-	
+
 	//localhost:5010/airport/airports/:id
 	@GetMapping(path="/airports/{airportCode}")
 	public Airport viewAirport(@PathVariable int airportCode) throws AirportNotFoundException{
 		return dao.viewAirport(airportCode);
 	}
-	
+
 	//localhost:5010/airport/addAirport
 	@PostMapping(path="/addAirport")
 	public Airport addAirport(@RequestBody Airport airport) {
