@@ -38,6 +38,7 @@ public class UserController {
 	//localhost:5010/user/users
 	@RequestMapping(path="/users")
 	public List<User> viewAllUsers(){
+		logger.info("Users retrieved sucessfully");
 		return dao.viewUser();
 	}
 	
@@ -45,12 +46,14 @@ public class UserController {
 	@GetMapping(path="/users/{UserId}")
 	public User viewUserById(@PathVariable int UserId) throws UserNotFoundException{
 		BigInteger userId = BigInteger.valueOf(UserId);
+		logger.info("User retrieved sucessfully");
 		return dao.viewUser(userId);
 	}
 	
 	//localhost:5010/user/updateUser/:id
 	@PutMapping(path="/updateUser")
 	public User updateUser(@RequestBody User user) {
+		logger.info("Users updated sucessfully");
 		return dao.updateUser(user);
 	}
 	
@@ -58,6 +61,7 @@ public class UserController {
 	@DeleteMapping(path="deleteUser/{Userid}")
 	public void deleteUser(@PathVariable int UserId){
 		BigInteger userId = BigInteger.valueOf(UserId);
+		logger.warn("User Deleted Sucessfully");
 		dao.deleteUser(userId);
 	}
 }

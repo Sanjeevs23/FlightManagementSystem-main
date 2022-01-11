@@ -24,7 +24,7 @@ import com.cg.flightmgmt.dto.ScheduledFlight;
 @RestController
 @RequestMapping("/scheduledFlightController")
 public class ScheduledFlightController {
-Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
+Logger logger=org.slf4j.LoggerFactory.getLogger(ScheduledFlightController.class);
 	
 	@Autowired
 	private ScheduledFlightDao dao;
@@ -36,12 +36,14 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 		System.out.println(scheduleid);
 		System.out.println(flightid);
 		System.out.println(flight);
+		logger.info("Scheduler flight added sucessfully");
 	return dao.addScheduleFlight(flight, scheduleid, flightid);
 		//return null;
 	}
 	
 	@GetMapping(path="/viewScheduledFlights")
 	public List<ScheduledFlight> viewScheduledFlight(){
+		logger.info("all flight retrieved sucessfully");
 		return dao.viewScheduledFlights() ;
 		
 	}
@@ -52,6 +54,7 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 		LocalDateTime DepartureDate = LocalDateTime.parse(depaturedate, formatter);
 
 		//System.out.println(depaturedate);
+		logger.info("Scheduled Flights Retrived sucessfully");
 		return dao.viewScheduledFlights(airportsourceCode, airportDestCode, DepartureDate);
 		//return null;
 		
@@ -60,11 +63,13 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	@GetMapping(path="/viewScheduledFlight/{flightNumber}")
 	public List<ScheduledFlight> viewScheduledFlight(@PathVariable int flightNumber){
 		BigInteger flightno= BigInteger.valueOf(flightNumber);
+		logger.info("Scheduled Flight Retrived sucessfully");
 		return dao.viewScheduledFlight(flightno);
 	}
 	
 	@PostMapping(path="/UpdateModifyFlightSchedule")
 	public ScheduledFlight modifyFlightSchedule(@RequestBody ScheduledFlight flight) {
+		logger.info("Scheduled Flights Updated sucessfully");
 		return dao.modifyFlightSchedule(flight);
 	}
 }

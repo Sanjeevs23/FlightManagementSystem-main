@@ -23,7 +23,7 @@ import com.cg.flightmgmt.exception.FlightNotFoundException;
 @RestController
 @RequestMapping("/flight")
 public class FlightController {
-Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
+Logger logger=org.slf4j.LoggerFactory.getLogger(FlightController.class);
 	
 	@Autowired
 	private FlightDao dao;
@@ -38,6 +38,7 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	//localhost:5010/flight/flights
 	@RequestMapping(path="/flights")
 	public List<Flight> viewAllFlights(){
+		logger.info("All flight retrieved sucessfully");
 		return dao.viewFlight();
 	}
 	
@@ -45,12 +46,14 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	@GetMapping(path="/flights/{Flightno}")
 	public Flight viewFlightById(@PathVariable int Flightno) throws FlightNotFoundException{
 		BigInteger flightno = BigInteger.valueOf(Flightno);
+		logger.info("All flight retrieved sucessfully");
 		return dao.viewFlight(flightno);
 	}
 	
 	//localhost:5010/flight/updateFlight/:id
 	@PutMapping(path="/UpdateFlight")
-	public Flight updateFlight(@RequestBody Flight flight) {
+	public Flight updateFlight(@Valid @RequestBody Flight flight) {
+		logger.info("All flight updated sucessfully");
 		return dao.modifyFlight(flight);
 	}
 	
@@ -58,6 +61,7 @@ Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
 	@DeleteMapping(path="deleteFlight/{Flightno}")
 	public void deleteFlight(@PathVariable int Flightno){
 		BigInteger flightno = BigInteger.valueOf(Flightno);
+		logger.warn("Flight Deleted sucessfully");
 		dao.deleteFlight(flightno);
 	}
 }

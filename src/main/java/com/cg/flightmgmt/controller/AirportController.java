@@ -2,6 +2,8 @@ package com.cg.flightmgmt.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,18 +28,21 @@ public class AirportController {
 	//localhost:5010/airport/airports
 	@RequestMapping(path="/airports")
 	public List<Airport> viewAllAirports(){
+		logger.info("All airport details are retrived");
 		return dao.viewAirport();
 	}
 
 	//localhost:5010/airport/airports/:id
 	@GetMapping(path="/airports/{airportCode}")
 	public Airport viewAirport(@PathVariable int airportCode) throws AirportNotFoundException{
+		logger.info("Airport Details Retrived");
 		return dao.viewAirport(airportCode);
 	}
 
 	//localhost:5010/airport/addAirport
 	@PostMapping(path="/addAirport")
-	public Airport addAirport(@RequestBody Airport airport) {
+	public Airport addAirport(@Valid @RequestBody Airport airport) {
+	logger.info("Airport Sucessfully added");	
 		return dao.addAirport(airport);
 	}
 }

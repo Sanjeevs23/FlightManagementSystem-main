@@ -37,7 +37,7 @@ public class ScheduleController {
 			System.out.println(destination.toString());
 			schedule.setDestinationAirport(destination);
 			System.out.println(schedule.toString());
-			logger.info("Booking created sucessfully");
+			logger.info("Schedule created sucessfully");
 			 dao.createSchedule(schedule);
 		}
 		

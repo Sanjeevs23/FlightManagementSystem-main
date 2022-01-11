@@ -24,7 +24,7 @@ import com.cg.flightmgmt.exception.BookingNotFoundException;
 @RestController
 @RequestMapping("/booking")
 public class BookingController {
-	Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
+	Logger logger=org.slf4j.LoggerFactory.getLogger(BookingController.class);
 	
 	@Autowired
 	private BookingDao dao;
@@ -44,22 +44,27 @@ public class BookingController {
 	@DeleteMapping(path="deleteBooking/{bookingid}")
 	 public void deletebooking(@PathVariable int bookingid) {
 		BigInteger Bookingid = BigInteger.valueOf(bookingid);
+		logger.warn("Booking Deleted Sucessfully");
     	dao.deleteBooking(Bookingid);
     }
     
     @PutMapping("/updateBooking")
-    public Booking updateBooking(@RequestBody Booking booking) {
+    public Booking updateBooking(@Valid @RequestBody Booking booking) {
+    	logger.info("Booking modified sucessfully");
     	return dao.modifyBooking(booking);
     }
     
     @GetMapping("/viewbooking/{bookingid}")
     public Booking getBooking(@PathVariable int bookingid) throws BookingNotFoundException {
     	BigInteger Bookingid = BigInteger.valueOf(bookingid);
+    	logger.info("Booking retrived sucussfully");
     	return dao.viewBooking(Bookingid);
     }
     
     @GetMapping("/viewbooking")
     public List<Booking> getBookInList(Booking booking){
+    	logger.info(" All Booking retrived sucessfully");
     	return dao.viewBooking();   	
+    	
     }
 }
