@@ -18,7 +18,7 @@ import com.cg.flightmgmt.exception.AirportNotFoundException;
 @RestController
 @RequestMapping("/airport")
 public class AirportController {
-	Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
+	Logger logger=org.slf4j.LoggerFactory.getLogger(AirportController.class);
 
 	@Autowired
 	private AirportDao dao;

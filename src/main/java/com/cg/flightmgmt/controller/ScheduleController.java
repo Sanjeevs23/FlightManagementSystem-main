@@ -19,7 +19,7 @@ import com.cg.flightmgmt.repository.AirportRepository;
 @RequestMapping("/schedule")
 public class ScheduleController {
 	
-		Logger logger=org.slf4j.LoggerFactory.getLogger(UserController.class);
+		Logger logger=org.slf4j.LoggerFactory.getLogger(ScheduleController.class);
 		
 		@Autowired
 		private ScheduleDao dao;
@@ -37,7 +37,7 @@ public class ScheduleController {
 			System.out.println(destination.toString());
 			schedule.setDestinationAirport(destination);
 			System.out.println(schedule.toString());
-			//logger.info("Booking created sucessfully");
+			logger.info("Booking created sucessfully");
 			 dao.createSchedule(schedule);
 		}
 		
