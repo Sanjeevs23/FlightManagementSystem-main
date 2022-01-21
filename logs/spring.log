@@ -1,0 +1,23 @@
+2022-01-21 16:35:35 - Starting FlightManagementSystemApplication using Java 17.0.1 on SANJSANANTHPC-1 with PID 11184 (C:\Users\sanje\Downloads\FlightManagementSystem-main\FlightManagementSystem-main\target\classes started by sanjeev in C:\Users\sanje\Downloads\FlightManagementSystem-main\FlightManagementSystem-main)
+2022-01-21 16:35:35 - No active profile set, falling back to default profiles: default
+2022-01-21 16:35:36 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-21 16:35:36 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-21 16:35:40 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 16:35:40 - Finished Spring Data repository scanning in 266 ms. Found 6 JPA repository interfaces.
+2022-01-21 16:35:44 - Tomcat initialized with port(s): 5010 (http)
+2022-01-21 16:35:44 - Starting service [Tomcat]
+2022-01-21 16:35:44 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 16:35:45 - Initializing Spring embedded WebApplicationContext
+2022-01-21 16:35:45 - Root WebApplicationContext: initialization completed in 9058 ms
+2022-01-21 16:35:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 16:35:46 - HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-21 16:35:46 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 16:35:47 - HikariPool-1 - Starting...
+2022-01-21 16:35:47 - HikariPool-1 - Start completed.
+2022-01-21 16:35:47 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-01-21 16:35:50 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 16:35:50 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 16:35:52 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 16:35:52 - LiveReload server is running on port 35729
+2022-01-21 16:35:53 - Tomcat started on port(s): 5010 (http) with context path ''
+2022-01-21 16:35:54 - Started FlightManagementSystemApplication in 20.443 seconds (JVM running for 22.375)
