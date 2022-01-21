@@ -21,3 +21,40 @@
 2022-01-21 16:35:52 - LiveReload server is running on port 35729
 2022-01-21 16:35:53 - Tomcat started on port(s): 5010 (http) with context path ''
 2022-01-21 16:35:54 - Started FlightManagementSystemApplication in 20.443 seconds (JVM running for 22.375)
+2022-01-21 16:48:05 - Starting FlightManagementSystemApplication using Java 17.0.1 on SANJSANANTHPC-1 with PID 12512 (C:\Users\sanje\Downloads\FlightManagementSystem-main\FlightManagementSystem-main\target\classes started by sanjeev in C:\Users\sanje\Downloads\FlightManagementSystem-main\FlightManagementSystem-main)
+2022-01-21 16:48:05 - No active profile set, falling back to default profiles: default
+2022-01-21 16:48:06 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-21 16:48:06 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-21 16:48:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 16:48:11 - Finished Spring Data repository scanning in 322 ms. Found 6 JPA repository interfaces.
+2022-01-21 16:48:14 - Tomcat initialized with port(s): 5010 (http)
+2022-01-21 16:48:14 - Starting service [Tomcat]
+2022-01-21 16:48:14 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 16:48:15 - Initializing Spring embedded WebApplicationContext
+2022-01-21 16:48:15 - Root WebApplicationContext: initialization completed in 8911 ms
+2022-01-21 16:48:44 - Starting FlightManagementSystemApplication using Java 17.0.1 on SANJSANANTHPC-1 with PID 5160 (C:\Users\sanje\Downloads\FlightManagementSystem-main\FlightManagementSystem-main\target\classes started by sanjeev in C:\Users\sanje\Downloads\FlightManagementSystem-main\FlightManagementSystem-main)
+2022-01-21 16:48:44 - No active profile set, falling back to default profiles: default
+2022-01-21 16:48:44 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-01-21 16:48:44 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-01-21 16:48:49 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 16:48:49 - Finished Spring Data repository scanning in 266 ms. Found 6 JPA repository interfaces.
+2022-01-21 16:48:52 - Tomcat initialized with port(s): 5010 (http)
+2022-01-21 16:48:52 - Starting service [Tomcat]
+2022-01-21 16:48:52 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 16:48:53 - Initializing Spring embedded WebApplicationContext
+2022-01-21 16:48:53 - Root WebApplicationContext: initialization completed in 8596 ms
+2022-01-21 16:48:54 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 16:48:55 - HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-01-21 16:48:55 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 16:48:56 - HikariPool-1 - Starting...
+2022-01-21 16:48:57 - HikariPool-1 - Start completed.
+2022-01-21 16:48:57 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-01-21 16:49:01 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 16:49:01 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 16:49:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 16:49:06 - LiveReload server is running on port 35729
+2022-01-21 16:49:07 - Tomcat started on port(s): 5010 (http) with context path ''
+2022-01-21 16:49:10 - Started FlightManagementSystemApplication in 27.113 seconds (JVM running for 28.784)
+2022-01-21 16:49:44 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 16:49:44 - Initializing Servlet 'dispatcherServlet'
+2022-01-21 16:49:44 - Completed initialization in 2 ms
